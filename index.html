@@ -29,6 +29,7 @@
   --container:1140px;
 }
 *,*::before,*::after{box-sizing:border-box}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 html{scroll-behavior:smooth}
 body{
   margin:0;
@@ -72,38 +73,12 @@ section{padding:48px 0}
 }
 
 /* ============ HERO ============ */
-.hero{padding:24px 0 32px}
+.hero{padding:0 0 32px}
 .hero__banner{
-  position:relative;
-  border-radius:var(--radius);
+  display:block;
   overflow:hidden;
-  min-height:240px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:32px 16px;
-  color:#fff;
-  /* Замініть на своє зображення: images/hero.jpg (небо, соняшники, будинок) */
-  background:
-    linear-gradient(180deg,rgba(0,40,90,.15),rgba(0,60,0,.35)),
-    url("images/hero.jpg") center/cover no-repeat,
-    linear-gradient(180deg,#5aa9e6 0%,#a8d8f0 45%,#7cc04f 70%,#3f8f2f 100%);
 }
-.hero__title{
-  font-size:40px;
-  font-weight:800;
-  letter-spacing:.5px;
-  text-shadow:0 3px 12px rgba(0,0,0,.35);
-}
-.hero__subtitle{
-  margin-top:10px;
-  font-size:15px;
-  font-weight:600;
-  max-width:440px;
-  text-shadow:0 2px 8px rgba(0,0,0,.4);
-}
+.hero__banner img{width:100%;height:auto;display:block}
 .hero__cta{text-align:center;margin-top:28px}
 .hero__cta .btn{width:100%;max-width:420px}
 
@@ -120,6 +95,7 @@ section{padding:48px 0}
 }
 .service:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,.1)}
 .service .icon{width:56px;height:56px;margin:0 auto 10px}
+.service .svc-icon{width:56px;height:56px;margin:0 auto 10px;display:block;object-fit:contain}
 .service h3{font-size:16px;font-weight:700;margin-bottom:6px}
 .service p{margin:0;font-size:12px;color:var(--muted)}
 
@@ -135,11 +111,10 @@ section{padding:48px 0}
   margin-bottom:16px;
 }
 .cond-card__icon{
-  flex:0 0 64px;height:64px;border-radius:50%;
-  background:var(--green-light);
-  display:flex;align-items:center;justify-content:center;
+  flex:0 0 76px;
+  display:flex;align-items:flex-start;justify-content:center;
 }
-.cond-card__icon .icon{width:36px;height:36px}
+.cond-card__icon img{width:76px;height:auto;display:block}
 .cond-card h3{font-size:17px;font-weight:700;margin-bottom:10px}
 .list-dot{list-style:none}
 .list-dot li{position:relative;padding-left:18px;margin-bottom:6px;font-size:14px}
@@ -198,80 +173,15 @@ section{padding:48px 0}
 }
 .phones a:hover{background:var(--green);color:#fff}
 
-/* ============ ІНФОГРАФІКА ============ */
-.ig{
-  border:1px solid var(--border);
+/* ============ ІНФОГРАФІКИ (зображення узгодженого дизайну) ============ */
+.ig-img{
+  margin:0 0 24px;
   border-radius:var(--radius);
   overflow:hidden;
   box-shadow:var(--shadow);
-  margin-bottom:32px;
+  border:1px solid var(--border);
 }
-.ig__head{
-  position:relative;
-  padding:20px 70px 16px 20px;
-}
-.ig__head h2{font-size:24px;font-weight:800;text-transform:uppercase}
-.ig__head h2 small{display:block;font-size:16px;margin-top:2px}
-.ig__flag{
-  position:absolute;top:0;right:16px;width:44px;height:64px;
-  background:var(--yellow);
-  clip-path:polygon(0 0,100% 0,100% 100%,50% 80%,0 100%);
-}
-.ig__strip{
-  background:var(--green);color:#fff;
-  font-size:12px;font-weight:700;text-transform:uppercase;
-  padding:8px 20px;
-}
-.ig__body{display:grid;gap:16px;padding:20px}
-.ig__col h3{
-  display:flex;align-items:center;gap:10px;
-  font-size:17px;font-weight:700;margin-bottom:14px;
-}
-.ig__col h3 .icon{width:34px;height:34px;flex:0 0 34px}
-.note-yellow{background:var(--yellow-soft);border-radius:8px;padding:12px;font-size:13px;font-weight:600}
-.note-green{background:var(--green);color:#fff;border-radius:8px;padding:14px;font-size:14px;font-weight:600}
-.sub-title{background:var(--green-light);font-weight:700;font-size:14px;padding:6px 10px;margin:14px 0 10px;border-radius:4px}
-.check-list{list-style:none}
-.check-list li{display:flex;align-items:center;gap:10px;font-size:14px;margin-bottom:8px}
-.check-list li::before{
-  content:"✓";flex:0 0 22px;height:22px;border-radius:50%;
-  background:var(--green);color:#fff;font-size:12px;font-weight:700;
-  display:flex;align-items:center;justify-content:center;
-}
-.warn{
-  display:flex;align-items:center;gap:10px;
-  border:2px solid var(--green);border-radius:8px;
-  padding:10px 12px;margin-top:14px;font-size:13px;font-weight:600;
-}
-.warn::before{
-  content:"!";flex:0 0 24px;height:24px;border-radius:50%;
-  background:var(--green-dark);color:#fff;font-weight:800;
-  display:flex;align-items:center;justify-content:center;
-}
-.num-list{list-style:none}
-.num-list li{
-  display:flex;gap:12px;align-items:center;
-  background:var(--bg-soft);border-radius:8px;
-  padding:10px 12px;margin-bottom:8px;font-size:14px;font-weight:600;
-}
-.num-list li span{
-  flex:0 0 28px;height:28px;border-radius:6px;background:var(--yellow);
-  font-weight:800;display:flex;align-items:center;justify-content:center;
-}
-.spend{display:grid;grid-template-columns:1fr 1fr;gap:10px;text-align:center;font-weight:700;font-size:13px}
-.spend div{background:var(--bg-soft);border-radius:8px;padding:12px 6px}
-.spend .icon{width:40px;height:40px;margin:0 auto 6px}
-.role-list{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;text-align:center;font-size:12px;font-weight:600}
-.role-list .icon{display:block;width:36px;height:36px;margin:0 auto 4px;stroke:var(--green)}
-.spend .icon{display:block}
-.icon-list{list-style:none}
-.icon-list li{display:flex;align-items:center;gap:12px;font-size:14px;padding:8px 0;border-bottom:1px solid var(--border)}
-.icon-list li:last-child{border-bottom:0}
-.icon-list .icon{width:30px;height:30px;flex:0 0 30px}
-.sum-box{
-  background:var(--yellow);border-radius:8px;
-  padding:16px;font-size:18px;font-weight:800;color:var(--green-dark);margin-top:16px;
-}
+.ig-img img{width:100%;height:auto;display:block}
 
 /* ============ ФУТЕР ============ */
 .footer{border-top:1px solid var(--border);padding:32px 0 24px;background:#fff}
@@ -302,8 +212,6 @@ section{padding:48px 0}
 
 /* ============ ПЛАНШЕТ ≥ 640 ============ */
 @media (min-width:640px){
-  .hero__banner{min-height:320px}
-  .hero__title{font-size:56px}
   .services{grid-template-columns:repeat(4,1fr)}
   .amounts{grid-template-columns:repeat(3,1fr)}
   .footer__grid{grid-template-columns:1fr 1fr}
@@ -315,30 +223,41 @@ section{padding:48px 0}
   section{padding:64px 0}
   .section-title{font-size:32px;margin-bottom:32px}
   .topbar{font-size:16px}
-  .hero__banner{min-height:420px}
-  .hero__title{font-size:76px}
-  .hero__subtitle{font-size:18px;max-width:520px}
   .service{padding:28px 16px}
   .service h3{font-size:18px}
   .service p{font-size:13px}
   .cond-card{padding:28px 32px;gap:28px}
-  .cond-card__icon{flex-basis:84px;height:84px}
-  .cond-card__icon .icon{width:46px;height:46px}
+  .cond-card__icon{flex-basis:100px}
+  .cond-card__icon img{width:100px}
   .cond-card h3{font-size:20px}
   .step{align-items:center;padding:18px 24px;gap:20px}
-  .step__icon{display:block;flex:0 0 56px}
-  .step__icon .icon{width:52px;height:52px}
+  .step__icon{display:block;flex:0 0 64px}
+  .step__icon img{width:64px}
   .step h3{font-size:17px}
   .step p{font-size:14px}
-  .ig__head h2{font-size:34px}
-  .ig__head h2 small{font-size:20px}
-  .ig__flag{width:60px;height:90px;right:28px}
-  .ig__strip{font-size:14px}
-  .ig__body{grid-template-columns:repeat(3,1fr);gap:28px;padding:28px}
-  .ig__body--two{grid-template-columns:1fr 1fr}
   .footer__top{flex-direction:row;align-items:center;gap:40px}
   .footer__grid{grid-template-columns:1fr 1.3fr 1fr;gap:40px}
 }
+
+/* ============ МОДАЛЬНЕ ВІКНО (консультація) ============ */
+.modal{position:fixed;inset:0;z-index:1000;display:none;align-items:center;justify-content:center;padding:16px}
+.modal.open{display:flex}
+.modal__overlay{position:absolute;inset:0;background:rgba(15,30,15,.55)}
+.modal__card{
+  position:relative;background:#fff;border-radius:var(--radius);
+  box-shadow:0 20px 60px rgba(0,0,0,.3);
+  width:100%;max-width:420px;padding:28px 24px;
+  animation:modalIn .25s ease-out;
+}
+@keyframes modalIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.modal__close{
+  position:absolute;top:8px;right:8px;width:38px;height:38px;
+  border:0;background:transparent;font-size:26px;line-height:1;
+  color:var(--muted);cursor:pointer;border-radius:8px;
+}
+.modal__close:hover{background:var(--bg-soft);color:var(--text)}
+.modal__title{font-size:20px;font-weight:800;margin-bottom:6px;padding-right:28px}
+.modal__text{font-size:13px;color:var(--muted);margin:0 0 16px}
 
 /* Пульсація головної кнопки */
 .hero__cta .btn{animation:pulse 2.4s ease-in-out 1.5s infinite}
@@ -363,13 +282,13 @@ body{overflow-x:hidden}
 
 <!-- ================= HERO ================= -->
 <header class="hero">
+  <h1 class="sr-only">єВідновлення — державна допомога на ремонт житла від компанії «Комфорт»</h1>
+  <div class="hero__banner" data-aos="zoom-in">
+    <img src="images/hero.jpg" alt="єВідновлення — державна допомога на ремонт житла, пошкодженого внаслідок бойових дій">
+  </div>
   <div class="container">
-    <div class="hero__banner" data-aos="zoom-in">
-      <h1 class="hero__title" data-aos="fade-down" data-aos-delay="300">єВідновлення</h1>
-      <p class="hero__subtitle" data-aos="fade-up" data-aos-delay="500">Державна допомога на ремонт житла, пошкодженого внаслідок бойових дій</p>
-    </div>
     <div class="hero__cta" data-aos="zoom-in" data-aos-delay="600">
-      <a href="#order" class="btn">Залишити заявку на Є-Відновлення</a>
+      <button type="button" class="btn" data-modal-open>Залишити заявку на Є-Відновлення</button>
     </div>
   </div>
 </header>
@@ -380,22 +299,22 @@ body{overflow-x:hidden}
     <h2 class="section-title" data-aos="fade-up">Що ми відновлюємо?</h2>
     <div class="services">
       <div class="service" data-aos="flip-left" data-aos-delay="0">
-        <svg class="icon" viewBox="0 0 48 48"><rect x="8" y="6" width="32" height="36"/><line x1="24" y1="6" x2="24" y2="42"/><line x1="8" y1="24" x2="40" y2="24"/><line x1="4" y1="42" x2="44" y2="42"/></svg>
+        <img class="svc-icon" src="images/svc-vikna.png" alt="" aria-hidden="true">
         <h3>Вікна</h3>
         <p>Енергоефективні профілі Rehau, Steko, WDS</p>
       </div>
       <div class="service" data-aos="flip-left" data-aos-delay="100">
-        <svg class="icon" viewBox="0 0 48 48"><rect x="8" y="6" width="32" height="18"/><line x1="18" y1="6" x2="18" y2="24"/><line x1="30" y1="6" x2="30" y2="24"/><line x1="4" y1="28" x2="44" y2="28"/><line x1="8" y1="28" x2="8" y2="42"/><line x1="16" y1="28" x2="16" y2="42"/><line x1="24" y1="28" x2="24" y2="42"/><line x1="32" y1="28" x2="32" y2="42"/><line x1="40" y1="28" x2="40" y2="42"/><line x1="4" y1="42" x2="44" y2="42"/></svg>
+        <img class="svc-icon" src="images/svc-balkon.png" alt="" aria-hidden="true">
         <h3>Балкони</h3>
         <p>Скління, розширення та ремонт під ключ</p>
       </div>
       <div class="service" data-aos="flip-left" data-aos-delay="200">
-        <svg class="icon" viewBox="0 0 48 48"><rect x="10" y="4" width="28" height="40"/><path d="M14 8 L30 12 V42 L14 40 Z"/><circle cx="26" cy="26" r="1.5"/></svg>
+        <img class="svc-icon" src="images/svc-dveri.png" alt="" aria-hidden="true">
         <h3>Вхідні двері</h3>
         <p>Надійні двері для квартир та будинків</p>
       </div>
       <div class="service" data-aos="flip-left" data-aos-delay="300">
-        <svg class="icon" viewBox="0 0 48 48"><path d="M30 6a8 8 0 0 0-7 11L8 32a3.5 3.5 0 0 0 5 5l15-15a8 8 0 0 0 11-7l-5 3-4-1-1-4 5-3a8 8 0 0 0-4-1z"/></svg>
+        <img class="svc-icon" src="images/svc-remont.png" alt="" aria-hidden="true">
         <h3>Ремонт</h3>
         <p>Заміна склопакетів, фурнітури, ущільнювачів</p>
       </div>
@@ -410,7 +329,7 @@ body{overflow-x:hidden}
 
     <div class="cond-card" data-aos="fade-right">
       <div class="cond-card__icon" data-aos="zoom-in" data-aos-delay="200">
-        <svg class="icon" viewBox="0 0 48 48"><path d="M6 22 L24 8 L42 22"/><path d="M10 19 V40 H38 V19"/><rect x="18" y="24" width="12" height="10"/><line x1="24" y1="24" x2="24" y2="34"/></svg>
+        <img src="images/1.1umovy.jpg" alt="" aria-hidden="true">
       </div>
       <div>
         <h3>Хто може отримати допомогу?</h3>
@@ -425,7 +344,7 @@ body{overflow-x:hidden}
 
     <div class="cond-card" data-aos="fade-left">
       <div class="cond-card__icon" data-aos="zoom-in" data-aos-delay="200">
-        <svg class="icon" viewBox="0 0 48 48"><rect x="10" y="6" width="22" height="36"/><line x1="4" y1="42" x2="44" y2="42"/><rect x="32" y="20" width="10" height="22"/><line x1="16" y1="12" x2="16" y2="14"/><line x1="26" y1="12" x2="26" y2="14"/><line x1="16" y1="20" x2="16" y2="22"/><line x1="26" y1="20" x2="26" y2="22"/><line x1="16" y1="28" x2="16" y2="30"/><line x1="26" y1="28" x2="26" y2="30"/><rect x="18" y="34" width="6" height="8"/></svg>
+        <img src="images/1.2umovy.jpg" alt="" aria-hidden="true">
       </div>
       <div>
         <h3>Яке житло підлягає відновленню?</h3>
@@ -447,7 +366,7 @@ body{overflow-x:hidden}
     <div class="steps">
       <div class="step" data-aos="fade-right" data-aos-delay="0">
         <div class="step__num" data-aos="zoom-in" data-aos-delay="250">1</div>
-        <div class="step__icon"><svg class="icon" viewBox="0 0 48 48"><rect x="14" y="4" width="20" height="40" rx="3"/><line x1="21" y1="39" x2="27" y2="39"/><line x1="19" y1="16" x2="29" y2="16"/><line x1="19" y1="22" x2="29" y2="22"/><line x1="19" y1="28" x2="25" y2="28"/></svg></div>
+        <div class="step__icon"><img src="images/1yak_otrymaty.jpg" alt="" aria-hidden="true"></div>
         <div>
           <h3>Крок 1. Повідомити про пошкоджене майно</h3>
           <p>Подайте інформаційне повідомлення через застосунок або портал «Дія» чи ЦНАП, якщо раніше цього не зробили. За можливості сфотографуйте пошкодження та збережіть підтверджувальні документи.</p>
@@ -456,7 +375,7 @@ body{overflow-x:hidden}
 
       <div class="step" data-aos="fade-left" data-aos-delay="80">
         <div class="step__num" data-aos="zoom-in" data-aos-delay="250">2</div>
-        <div class="step__icon"><svg class="icon" viewBox="0 0 48 48"><path d="M4 18 L24 6 L44 18 Z"/><line x1="10" y1="22" x2="10" y2="36"/><line x1="19" y1="22" x2="19" y2="36"/><line x1="29" y1="22" x2="29" y2="36"/><line x1="38" y1="22" x2="38" y2="36"/><line x1="4" y1="40" x2="44" y2="40"/></svg></div>
+        <div class="step__icon"><img src="images/2yak_otrymaty.jpg" alt="" aria-hidden="true"></div>
         <div>
           <h3>Крок 2. Відкрити картку «єВідновлення»</h3>
           <p>Для компенсації на майбутній ремонт відкрийте спеціальний рахунок в одному з банків-партнерів програми — онлайн або у відділенні.</p>
@@ -465,7 +384,7 @@ body{overflow-x:hidden}
 
       <div class="step" data-aos="fade-right" data-aos-delay="160">
         <div class="step__num" data-aos="zoom-in" data-aos-delay="250">3</div>
-        <div class="step__icon"><svg class="icon" viewBox="0 0 48 48"><path d="M30 42 H8 V6 H30 L38 14 V22"/><line x1="14" y1="16" x2="28" y2="16"/><line x1="14" y1="23" x2="30" y2="23"/><line x1="14" y1="30" x2="22" y2="30"/><path d="M40 26 L28 38 L26 44 L32 42 L44 30 Z"/></svg></div>
+        <div class="step__icon"><img src="images/3yak_otrymaty.jpg" alt="" aria-hidden="true"></div>
         <div>
           <h3>Крок 3. Подати заяву на компенсацію</h3>
           <p>Оформіть заяву через «Дію», ЦНАП або в нотаріуса. Якщо житло перебуває у спільній власності, необхідно дотриматися процедури інформування співвласників та врахування їхньої згоди або заперечень.</p>
@@ -474,7 +393,7 @@ body{overflow-x:hidden}
 
       <div class="step" data-aos="fade-left" data-aos-delay="240">
         <div class="step__num" data-aos="zoom-in" data-aos-delay="250">4</div>
-        <div class="step__icon"><svg class="icon" viewBox="0 0 48 48"><rect x="4" y="8" width="32" height="30" rx="2"/><line x1="4" y1="16" x2="36" y2="16"/><line x1="12" y1="4" x2="12" y2="10"/><line x1="28" y1="4" x2="28" y2="10"/><circle cx="36" cy="36" r="9"/><polyline points="36,31 36,36 40,38"/></svg></div>
+        <div class="step__icon"><img src="images/4yak_otrymaty.jpg" alt="" aria-hidden="true"></div>
         <div>
           <h3>Крок 4. Дочекатися рішення комісії</h3>
           <p>Комісія перевірить відомості, обстежить житло та визначить суму компенсації. Звичайний строк розгляду — до 30 календарних днів, а в передбачених законодавством випадках перебіг розгляду може бути зупинений.</p>
@@ -483,7 +402,7 @@ body{overflow-x:hidden}
 
       <div class="step" data-aos="fade-right" data-aos-delay="320">
         <div class="step__num" data-aos="zoom-in" data-aos-delay="250">5</div>
-        <div class="step__icon"><svg class="icon" viewBox="0 0 48 48"><path d="M4 22 L20 8 L36 22"/><path d="M8 19 V40 H32 V19"/><rect x="16" y="28" width="8" height="12"/><rect x="34" y="24" width="10" height="8" rx="1"/><line x1="39" y1="32" x2="39" y2="44"/></svg></div>
+        <div class="step__icon"><img src="images/5yak_otrymaty.jpg" alt="" aria-hidden="true"></div>
         <div>
           <h3>Крок 5. Отримати кошти та виконати ремонт</h3>
           <p>Після позитивного рішення кошти надходять на спеціальну картку. Їх можна витратити лише на погоджені ремонтні роботи й дозволені будівельні товари або послуги учасників програми. Після завершення ремонту потрібно подати повідомлення про виконання робіт відповідно до встановленої процедури.</p>
@@ -540,94 +459,15 @@ body{overflow-x:hidden}
   </div>
 </section>
 
-<!-- ================= ІНФОГРАФІКА 1: ЯК ОТРИМАТИ ДОПОМОГУ ================= -->
+<!-- ================= ІНФОГРАФІКИ (узгоджений дизайн) ================= -->
 <section style="padding-top:0">
   <div class="container">
-    <div class="ig" data-aos="fade-up">
-      <div class="ig__head">
-        <h2>єВідновлення: <small>як отримати допомогу</small></h2>
-        <!-- Тут можна вставити рядок логотипів партнерів: <img src="images/partners.png" alt="Партнери програми"> -->
-        <div class="ig__flag" data-aos="fade-down" data-aos-delay="300"></div>
-      </div>
-      <div class="ig__strip">Державна програма допомоги на відновлення житла, яке має незначні пошкодження</div>
-
-      <div class="ig__body">
-        <div class="ig__col" data-aos="fade-up" data-aos-delay="0">
-          <h3><svg class="icon" viewBox="0 0 48 48"><path d="M6 22 L24 8 L42 22"/><path d="M10 19 V40 H38 V19"/></svg>Хто може подати заяву?</h3>
-          <div class="note-yellow">Власники квартир або приватних будинків, житло яких зазнало пошкоджень унаслідок бойових дій і розташоване на підконтрольній Уряду України території.</div>
-          <div class="sub-title">Пріоритет при розгляді мають:</div>
-          <ul class="check-list">
-            <li data-aos="fade-right" data-aos-delay="0">військовослужбовці</li>
-            <li data-aos="fade-right" data-aos-delay="80">ветерани</li>
-            <li data-aos="fade-right" data-aos-delay="160">люди з інвалідністю</li>
-            <li data-aos="fade-right" data-aos-delay="240">багатодітні родини</li>
-          </ul>
-          <div class="warn">Не надається у випадках, визначених законодавством.</div>
-        </div>
-
-        <div class="ig__col" data-aos="fade-up" data-aos-delay="150">
-          <h3><svg class="icon" viewBox="0 0 48 48"><rect x="10" y="6" width="28" height="36" rx="2"/><polyline points="15,16 18,19 23,14"/><line x1="26" y1="17" x2="33" y2="17"/><polyline points="15,27 18,30 23,25"/><line x1="26" y1="28" x2="33" y2="28"/></svg>Що потрібно зробити?</h3>
-          <ul class="num-list">
-            <li data-aos="fade-left" data-aos-delay="0"><span>1</span>Подати повідомлення про пошкоджене майно.</li>
-            <li data-aos="fade-left" data-aos-delay="100"><span>2</span>Відкрити рахунок єВідновлення у банку-партнері.</li>
-            <li data-aos="fade-left" data-aos-delay="200"><span>3</span>Подати заяву через Дію на отримання допомоги.</li>
-            <li data-aos="fade-left" data-aos-delay="300"><span>4</span>Дочекатися обстеження майна комісією місцевої ради.</li>
-          </ul>
-        </div>
-
-        <div class="ig__col" data-aos="fade-up" data-aos-delay="300">
-          <h3><svg class="icon" viewBox="0 0 48 48"><ellipse cx="20" cy="12" rx="12" ry="5"/><path d="M8 12 V30 C8 33 13 35 20 35"/><path d="M32 12 V20"/><circle cx="34" cy="32" r="10"/><line x1="34" y1="27" x2="34" y2="37"/></svg>Як використовують кошти?</h3>
-          <div class="note-green">Після рішення комісії кошти надходять на спеціальну картку єВідновлення.</div>
-          <div class="sub-title">Витратити кошти можна на:</div>
-          <div class="spend">
-            <div><svg class="icon" viewBox="0 0 48 48"><rect x="6" y="30" width="16" height="10"/><rect x="26" y="30" width="16" height="10"/><rect x="16" y="18" width="16" height="10"/></svg>будівельні матеріали</div>
-            <div><svg class="icon" viewBox="0 0 48 48"><rect x="8" y="6" width="28" height="10" rx="2"/><path d="M36 11 H42 V22 H24 V28"/><rect x="21" y="28" width="6" height="14" rx="1"/></svg>ремонтні послуги</div>
-          </div>
-          <div class="warn">Використати кошти потрібно у встановлений програмою строк.</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ================= ІНФОГРАФІКА 2: РОБОТА КОМІСІЇ ================= -->
-    <div class="ig" data-aos="fade-up">
-      <div class="ig__head">
-        <h2>єВідновлення: <small>робота комісії громади</small></h2>
-        <div class="ig__flag" data-aos="fade-down" data-aos-delay="300"></div>
-      </div>
-      <div class="ig__strip">Державна допомога на відновлення житла, пошкодженого через бойові дії</div>
-
-      <div class="ig__body ig__body--two">
-        <div class="ig__col" data-aos="fade-up" data-aos-delay="0">
-          <h3><svg class="icon" viewBox="0 0 48 48"><circle cx="24" cy="14" r="6"/><path d="M12 38 C12 28 36 28 36 38"/><circle cx="10" cy="18" r="4"/><circle cx="38" cy="18" r="4"/></svg>Що робить комісія?</h3>
-          <ul class="icon-list">
-            <li data-aos="fade-right" data-aos-delay="0"><svg class="icon" viewBox="0 0 48 48"><path d="M6 10 H34 V28 H18 L10 34 V28 H6 Z"/></svg>консультує заявників</li>
-            <li data-aos="fade-right" data-aos-delay="80"><svg class="icon" viewBox="0 0 48 48"><rect x="10" y="6" width="28" height="36" rx="2"/><line x1="16" y1="16" x2="32" y2="16"/><line x1="16" y1="24" x2="32" y2="24"/><line x1="16" y1="32" x2="26" y2="32"/></svg>перевіряє документи</li>
-            <li data-aos="fade-right" data-aos-delay="160"><svg class="icon" viewBox="0 0 48 48"><path d="M4 22 L18 10 L32 22"/><path d="M8 19 V36 H22"/><circle cx="32" cy="32" r="7"/><line x1="37" y1="37" x2="44" y2="44"/></svg>обстежує пошкоджене майно</li>
-            <li data-aos="fade-right" data-aos-delay="240"><svg class="icon" viewBox="0 0 48 48"><ellipse cx="24" cy="12" rx="14" ry="5"/><path d="M10 12 V22 C10 25 16 27 24 27 C32 27 38 25 38 22 V12"/><path d="M10 22 V32 C10 35 16 37 24 37 C32 37 38 35 38 32 V22"/></svg>визначає обсяг компенсації</li>
-            <li data-aos="fade-right" data-aos-delay="320"><svg class="icon" viewBox="0 0 48 48"><rect x="8" y="8" width="32" height="32" rx="2"/><polyline points="16,24 22,30 33,18"/></svg>ухвалює рішення щодо надання допомоги</li>
-          </ul>
-          <div class="sum-box" data-aos="zoom-in">Сума допомоги визначається за затвердженим чек-листом</div>
-        </div>
-
-        <div class="ig__col" data-aos="fade-up" data-aos-delay="150">
-          <h3><svg class="icon" viewBox="0 0 48 48"><circle cx="24" cy="14" r="6"/><path d="M12 38 C12 28 36 28 36 38"/><circle cx="10" cy="18" r="4"/><circle cx="38" cy="18" r="4"/></svg>Склад комісії</h3>
-          <div class="role-list" data-aos="zoom-in-up">
-            <div><svg class="icon" viewBox="0 0 48 48"><circle cx="24" cy="14" r="7"/><path d="M10 42 C10 28 38 28 38 42"/></svg>голова</div>
-            <div><svg class="icon" viewBox="0 0 48 48"><circle cx="24" cy="14" r="7"/><path d="M10 42 C10 28 38 28 38 42"/></svg>заступник</div>
-            <div><svg class="icon" viewBox="0 0 48 48"><circle cx="24" cy="14" r="7"/><path d="M10 42 C10 28 38 28 38 42"/></svg>секретар</div>
-            <div><svg class="icon" viewBox="0 0 48 48"><circle cx="16" cy="16" r="5"/><circle cx="32" cy="16" r="5"/><path d="M4 40 C4 28 28 28 28 40"/><path d="M22 30 C26 26 44 26 44 40"/></svg>члени комісії</div>
-          </div>
-          <div class="note-green" style="margin-top:18px">До роботи можуть залучатися</div>
-          <ul class="icon-list">
-            <li data-aos="fade-right" data-aos-delay="0"><svg class="icon" viewBox="0 0 48 48"><path d="M4 18 L24 6 L44 18 Z"/><line x1="12" y1="22" x2="12" y2="36"/><line x1="24" y1="22" x2="24" y2="36"/><line x1="36" y1="22" x2="36" y2="36"/><line x1="4" y1="40" x2="44" y2="40"/></svg>представники органів місцевого самоврядування</li>
-            <li data-aos="fade-right" data-aos-delay="80"><svg class="icon" viewBox="0 0 48 48"><path d="M12 22 A12 12 0 0 1 36 22 Z"/><line x1="8" y1="22" x2="40" y2="22"/><path d="M14 26 C14 40 34 40 34 26"/></svg>технічні спеціалісти (інженери, будівельники тощо)</li>
-            <li data-aos="fade-right" data-aos-delay="160"><svg class="icon" viewBox="0 0 48 48"><circle cx="20" cy="20" r="12"/><line x1="29" y1="29" x2="42" y2="42"/></svg>експерти або оцінювачі (у сфері будівництва, оцінки майна тощо)</li>
-            <li data-aos="fade-right" data-aos-delay="240"><svg class="icon" viewBox="0 0 48 48"><circle cx="16" cy="16" r="5"/><circle cx="32" cy="16" r="5"/><path d="M4 40 C4 28 28 28 28 40"/><path d="M22 30 C26 26 44 26 44 40"/></svg>інші фахівці — за потреби (залежно від особливостей об'єкта)</li>
-          </ul>
-          <div class="warn">Член комісії не бере участі у розгляді за наявності конфлікту інтересів.</div>
-        </div>
-      </div>
-    </div>
+    <figure class="ig-img" data-aos="fade-up">
+      <img src="images/ig-dopomoga.png" alt="єВідновлення: як отримати допомогу — хто може подати заяву, що потрібно зробити та як використовують кошти" loading="lazy">
+    </figure>
+    <figure class="ig-img" data-aos="fade-up">
+      <img src="images/ig-komisiya.png" alt="єВідновлення: робота комісії громади — що робить комісія та її склад" loading="lazy">
+    </figure>
   </div>
 </section>
 
@@ -660,13 +500,13 @@ body{overflow-x:hidden}
       </div>
 
       <div data-aos="fade-up" data-aos-delay="150">
-        <h4>Залишити заявку на замір</h4>
+        <h4>Отримати консультацію</h4>
         <!-- action вкажіть свій обробник (PHP-скрипт, Telegram-бот, Formspree тощо) -->
         <form class="form" action="#" method="post">
           <input type="text" name="name" placeholder="Ваше ім'я" required>
           <input type="tel" name="phone" placeholder="Номер телефону" required>
           <textarea name="message" placeholder="Повідомлення"></textarea>
-          <button type="submit" class="btn">Замовити замір</button>
+          <button type="submit" class="btn">Отримати консультацію</button>
         </form>
       </div>
 
@@ -684,6 +524,23 @@ body{overflow-x:hidden}
   </div>
 </footer>
 
+<!-- ================= МОДАЛЬНЕ ВІКНО: КОНСУЛЬТАЦІЯ ================= -->
+<div class="modal" id="consult" role="dialog" aria-modal="true" aria-labelledby="consult-title" aria-hidden="true">
+  <div class="modal__overlay" data-modal-close></div>
+  <div class="modal__card">
+    <button type="button" class="modal__close" data-modal-close aria-label="Закрити">&times;</button>
+    <h3 class="modal__title" id="consult-title">Отримати консультацію</h3>
+    <p class="modal__text">Залиште контакти — ми зателефонуємо та безкоштовно проконсультуємо щодо участі в програмі «єВідновлення».</p>
+    <!-- action вкажіть свій обробник (PHP-скрипт, Telegram-бот, Formspree тощо) -->
+    <form class="form" action="#" method="post">
+      <input type="text" name="name" placeholder="Ваше ім'я" required>
+      <input type="tel" name="phone" placeholder="Номер телефону" required>
+      <textarea name="message" placeholder="Коротко опишіть ваше питання (необовʼязково)"></textarea>
+      <button type="submit" class="btn">Отримати консультацію</button>
+    </form>
+  </div>
+</div>
+
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
   // Якщо CDN не завантажився — показуємо контент без анімацій
@@ -691,6 +548,37 @@ body{overflow-x:hidden}
     document.querySelectorAll('[data-aos]').forEach(function (el) { el.removeAttribute('data-aos'); });
   } else
   AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 60 });
+</script>
+<script>
+  // Модальне вікно «Отримати консультацію»
+  (function () {
+    var modal = document.getElementById('consult');
+    if (!modal) return;
+    var lastFocused = null;
+    function open() {
+      lastFocused = document.activeElement;
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      var field = modal.querySelector('input, textarea, button');
+      if (field) field.focus();
+    }
+    function close() {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      if (lastFocused) lastFocused.focus();
+    }
+    document.querySelectorAll('[data-modal-open]').forEach(function (btn) {
+      btn.addEventListener('click', function (e) { e.preventDefault(); open(); });
+    });
+    modal.querySelectorAll('[data-modal-close]').forEach(function (btn) {
+      btn.addEventListener('click', close);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && modal.classList.contains('open')) close();
+    });
+  })();
 </script>
 </body>
 </html>
