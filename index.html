@@ -266,7 +266,8 @@ section{padding:48px 0}
   50%{box-shadow:0 0 0 12px rgba(63,155,63,0)}
 }
 /* Не даємо AOS створювати горизонтальний скрол на мобільному */
-body{overflow-x:hidden}
+html{overflow-x:hidden}
+@supports (overflow:clip){html,body{overflow-x:clip}}
 
 /* Повага до налаштувань «менше анімацій» */
 @media (prefers-reduced-motion:reduce){
@@ -546,7 +547,15 @@ body{overflow-x:hidden}
   if (typeof AOS === 'undefined') {
     document.querySelectorAll('[data-aos]').forEach(function (el) { el.removeAttribute('data-aos'); });
   } else
+  {
+    // На телефоні бічні анімації (виїзд зліва/справа) розширюють сторінку — замінюємо на появу знизу
+    if (window.innerWidth < 768) {
+      document.querySelectorAll('[data-aos^="fade-left"],[data-aos^="fade-right"],[data-aos^="flip"]').forEach(function (el) {
+        el.setAttribute('data-aos', 'fade-up');
+      });
+    }
   AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 60 });
+  }
 </script>
 <script>
   // Модальне вікно «Отримати консультацію»
